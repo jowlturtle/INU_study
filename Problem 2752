@@ -1,0 +1,25 @@
+#include <stdio.h>
+#define SIZE 3
+int main(void) {
+	int i[SIZE] = { 0 };
+	int temp = 0 ;
+
+	for(int k=0; k<SIZE; k++)
+	scanf("%d", &i[k]);  //여러 배열을 받는 방법
+	
+	for (int j = 0; j < SIZE; j++) {
+		for (int k = 0; k <3-j ; k++) { //발생한 문제=4번재 5번째의 칸을 비교하는 경우가 생김//
+  
+			if (i[j] > i[j + k]) 
+			{
+				temp = i[j + k];
+				i[j + k] = i[j];
+			    i[j] = temp;
+			}
+		}
+	}
+	
+	for (int k = 0; k < 3; k++) {
+		printf("%d ", i[k]);  //만약 i[k]를 출력하게 된다면 123으 하나의 정수로 본다//
+	}
+	}
